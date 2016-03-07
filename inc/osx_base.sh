@@ -259,11 +259,11 @@ function do_system(){
 	local DIALOG_THRES=50
 
 	if [ $log_mode -eq 1 ]; then
-		rsync_flags="-ar ${verbose}"
+		rsync_flags="-r ${verbose}"
 		$white; echo "Copying Base System to ${dev_target}..."; $normal
 		rsync ${rsync_flags} ${rsync_source} /mnt/osx/target/
 	else
-		rsync_flags="-ar ${verbose} --info=progress2"
+		rsync_flags="-r ${verbose} --info=progress2"
 		copy_progress "Base System" "${rsync_flags}" "${rsync_source}" "/mnt/osx/target/"
 	fi
 
